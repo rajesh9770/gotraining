@@ -27,6 +27,9 @@ func main() {
 	sliceEx()
 	sliceEx2()
 	sliceEx3()
+	defineSliceEx1()
+	defineSliceEx2()
+	defineMapEx1()
 	
 	/**
 	var a, b string = "aa", "bb"
@@ -143,6 +146,7 @@ func sliceEx3(){
 	record1[2] = "1/2/1967"
 	trans[2] = record1
 	
+	// if you do not call make, then it uses the previous record
 	record1[0] = "D"
 	record1[1] = "Surname"
 	record1[2] = "1/2/1957"
@@ -151,5 +155,57 @@ func sliceEx3(){
 	for i:=0; i<len(trans); i++{
 		fmt.Println(trans[i])
 	}
-	fmt.Print(trans)
+	fmt.Println(trans)
+}
+
+func defineSliceEx1(){
+	student := [] string{} // no len no capcity, but initilized
+	students := [][] string{}
+	fmt.Println(student)
+	fmt.Println(students)
+	fmt.Println(student == nil) //false, b/c it's initialized
+	fmt.Println(students == nil)
+	student = append(student, "test") // works
+	fmt.Println(student)
+}
+
+func defineSliceEx2(){
+	var student [] string  // just the definition, but no initialization
+	var students [] string
+	fmt.Println(student)
+	fmt.Println(students)
+	fmt.Println(student == nil) // true b/c it's not inititialized
+	fmt.Println(students == nil)
+	student = append(student, "test2") // works, still can do append, append bring it to life
+	fmt.Println(student)
+	fmt.Println(student == nil) // false b/c it's now inititialized
+}
+
+func defineMapEx1(){
+	// there is no append function, this is uselless, you can't add values to map in this case
+	var myMap map[string]string
+	fmt.Println(myMap == nil) //true
+	fmt.Println(myMap)
+	//myMap["Key1"] = "value1"
+	//fmt.Println(myMap)
+	
+	var myMap2 = map[string]string{}
+	fmt.Println(myMap2 == nil) //false
+	fmt.Println(myMap2)
+	myMap2["Key1"] = "value1"
+	fmt.Println(myMap2)
+	
+	
+	var myMap3 = make(map[string]string)
+	fmt.Println(myMap3 == nil) //false
+	fmt.Println(myMap3)
+	myMap3["Key2"] = "value2"
+	fmt.Println(myMap3)
+	
+	var myMap4 = map[string]string{"Name" : "Rajesh", "Address" : "harwood road"}
+	fmt.Println(myMap4 == nil) //false
+	fmt.Println(myMap4)
+	myMap4["Key1"] = "value1"
+	fmt.Println(myMap4)
+	
 }
