@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"Json"
 	//"StringUtils"
 )
 
@@ -21,6 +22,8 @@ func main() {
 //		fmt.Printf("%d %b %o %#x UTF-8 %q\n", i, i, i, i, i)
 //	}
 
+	Json.JsonEx()
+	if true { return }
 	exec1()
 	exec2()
 	exec3()
@@ -189,7 +192,7 @@ func defineMapEx1(){
 	//myMap["Key1"] = "value1"
 	//fmt.Println(myMap)
 	
-	var myMap2 = map[string]string{}
+	var myMap2 = map[string]string{}  //creates an empty map
 	fmt.Println(myMap2 == nil) //false
 	fmt.Println(myMap2)
 	myMap2["Key1"] = "value1"
