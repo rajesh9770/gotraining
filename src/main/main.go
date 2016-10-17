@@ -151,4 +151,5 @@ func sliceEx3(){
 	for i:=0; i<len(trans); i++{
 		fmt.Println(trans[i])
 	}
+	fmt.Print(trans)
 }
